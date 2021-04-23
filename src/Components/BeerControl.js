@@ -1,8 +1,31 @@
 import React from 'react';
+import styled from 'styled-components';
+import Button from './defaults/Button';
 import NewBeerForm from './NewBeerForm';
 import BeerDetail from './BeerDetail';
 import BeerList from './BeerList';
 import EditBeerForm from './EditBeerForm'
+
+const StyledButton = styled(Button)`
+  background: white;
+  margin-right: 5px;
+  border: 2px solid white;
+  background-color: transparent;
+  width: 130px;
+  font-size: 20px;
+  font-weight: 900;
+  color: white;
+  border-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  outline: none;
+  &:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: .2s;
+  }
+`
 
 class BeerControl extends React.Component {
   constructor(props) {

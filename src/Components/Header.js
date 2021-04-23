@@ -8,22 +8,24 @@ const Navbar = styled.div`
   justify-content: space-between;
   padding: 5px 15px;
   height: 45px;
-  background-color: rgb(89, 179, 239);
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 37%, rgba(255,253,247,1) 100%);
   margin-bottom: 20px;
 `
 const StyledButton = styled(Button)`
   background: rgb(255,194,0);
   background: linear-gradient(0deg, rgba(255,194,0,1) 82%, rgba(255,255,255,1) 82%, rgba(255,243,206,1) 100%);
   margin-right: 5px;
-  border: 2px solid white;
+  padding-top: 5px;
+  border: 1px solid rgba(233, 233, 233);
   background-color: transparent;
   width: 130px;
   font-size: 20px;
   font-weight: 900;
   color: white;
   border-radius: 5px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   outline: none;
   &:hover {
     background-color: white;
@@ -36,7 +38,7 @@ const StyledTitle = styled(Button)`
   text-align: center;
   background-color: transparent;
   border-style: none;
-  color: white;
+  color: black;
   font-size: 30px;
   font-weight: 900;
   outline: none;
@@ -49,14 +51,14 @@ const StyledSearch = styled(Search)`
   float: right;
   margin: 7px;
   padding: 6px;
-  border: 2px solid white;
+  border: 2px solid;
   border-radius: 5px;
   outline: none;
 `
 
 const Header = () => (
   <Navbar>
-    <StyledButton text={"On Tap"} />
+    <StyledButton text={"Beer List"} />
     <StyledTitle text={"Andy's Pub"}/>
     <StyledSearch placeholder={"Search"}/>
   </Navbar>

@@ -4,16 +4,20 @@ import styled from 'styled-components';
 
 const Gose = styled.div`
   color: rgb(255, 0, 213);
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 700;
 `
 
 const BeerCard = styled.div`
-  margin-left: 32%;
+  margin-left: 31.2%;
   max-width: 500px;
   text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border: solid ;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: solid rgb(200,200,200);
+  border-radius: 30%;
+  background: rgb(240,240,240);
+  background: linear-gradient(0deg, rgba(240,240,240,1) 0%, rgba(195,195,195,1) 7%, rgba(150,150,150,1) 15%, rgba(196,196,196,1) 23%, rgba(240,240,240,1) 32%, rgba(195,195,195,1) 41%, rgba(150,150,150,1) 50%, rgba(196,196,196,1) 59%, rgba(240,240,240,1) 68%, rgba(195,195,195,1) 77%, rgba(150,150,150,1) 86%, rgba(150,150,150,1) 93%, rgba(240,240,240,1) 100%);
   h1 {
     margin-top: 0px;
   }
