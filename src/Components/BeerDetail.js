@@ -93,11 +93,11 @@ function BeerDetail(props){
       <h4>{beer.alcoholContent}% ABV</h4>
       <h4>${beer.price}/Pint</h4>
       <h4>Pint Count: {beer.pints}</h4>
-      {beer.pints > 0 &&
-        <button onClick={()=> onClickingBuy(beer.id) }>Pint Sold</button>
-      }
       {beer.pints <= 10 && beer.pints !== 0 &&
         <h1>Almost Empty!</h1>
+      }
+      {beer.pints > 0 &&
+        <button onClick={()=> onClickingBuy(beer.id) }>Pint Sold</button>
       }
       {beer.pints === 0 &&
         <h1>Restock Keg!</h1>
