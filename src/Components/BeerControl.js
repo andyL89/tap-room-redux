@@ -7,24 +7,21 @@ import BeerList from './BeerList';
 import EditBeerForm from './EditBeerForm'
 
 const StyledButton = styled(Button)`
+  cursor: pointer;
+  outline: none;
   background: white;
-  margin-right: 5px;
-  border: 2px solid white;
-  background-color: transparent;
+  margin-top: 10px;
+  margin-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 2px solid black;
   width: 130px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 900;
-  color: white;
+  color: black;
   border-radius: 5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  outline: none;
-  &:hover {
-    background-color: white;
-    color: black;
-    cursor: pointer;
-    transition: .2s;
-  }
 `
 
 class BeerControl extends React.Component {
@@ -125,7 +122,7 @@ class BeerControl extends React.Component {
     return (
       <>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <StyledButton onClick={this.handleClick} text={buttonText}/>
       </>
     );
   }
