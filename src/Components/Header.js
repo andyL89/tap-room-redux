@@ -47,7 +47,7 @@ const StyledSearch = styled(Search)`
 const Header = () => (
   <Navbar>
     <StyledButton text={"On Tap"} />
-    <StyledTitle text={"Andy's Pub"} />
+    <StyledTitle text={"Andy's Pub"}/>
     <StyledSearch placeholder={"Search"}/>
   </Navbar>
 )

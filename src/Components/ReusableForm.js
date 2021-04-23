@@ -15,8 +15,12 @@ function ReusableForm(props) {
           placeholder = 'Brand'/>
         <input
           type = 'text'
+          name = 'type'
+          placeholder = 'Type'/>
+        <input
+          type = 'text'
           name = 'price'
-          placeholder = 'Price' />
+          placeholder = 'Price per Pint' />
         <input
           type = 'text'
           name = 'alcoholContent'

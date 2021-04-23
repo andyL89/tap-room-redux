@@ -10,9 +10,9 @@ function BeerList(props){
           whenBeerClicked = { props.onBeerSelection }
           name={beer.name}
           brand={beer.brand}
-          price={beer.price}
+          type={beer.type}
           alcoholContent={beer.alcoholContent}
-          pints={beer.pints}
+          price={beer.price}
           id={beer.id}
           key={beer.id}/>
       )}

@@ -6,11 +6,11 @@ function BeerDetail(props){
 
   return (
     <>
-      <h1>Beer Detail</h1>
-      <h3>{beer.name}</h3>
-      <p>${beer.price}</p>
-      <p>{beer.alcoholContent}%</p>
-      <p>Pint Count: {beer.pints}</p>
+      <h1>{beer.name}</h1>
+      <h4>{beer.type}</h4>
+      <h4>{beer.alcoholContent}%</h4>
+      <h4>${beer.price}</h4>
+      <h4>Pint Count: {beer.pints}</h4>
       {beer.pints > 0 &&
         <button onClick={()=> onClickingBuy(beer.id) }>Pint Sold</button>
       }
@@ -18,7 +18,7 @@ function BeerDetail(props){
         <h1>Almost Empty!</h1>
       }
       {beer.pints === 0 &&
-        <h1>RESTOCK KEG!</h1>
+        <h1>Restock Keg!</h1>
       }
       {beer.pints === 0 &&
       <button onClick={()=> onClickingRestock(beer.id) }>Restock</button>

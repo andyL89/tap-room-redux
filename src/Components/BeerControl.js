@@ -2,6 +2,7 @@ import React from 'react';
 import NewBeerForm from './NewBeerForm';
 import BeerDetail from './BeerDetail';
 import BeerList from './BeerList';
+import EditBeerForm from './EditBeerForm'
 
 class BeerControl extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class BeerControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       masterBeerList: [],
-      selectedBeer: null
+      selectedBeer: null,
+      editing: false
     };
   }
 
@@ -18,6 +20,7 @@ class BeerControl extends React.Component {
       this.setState({
         formVisibleOnPage: false,
         selectedBeer: null,
+        editing: false
       });
     } else {
       this.setState(prevState => ({
@@ -26,6 +29,18 @@ class BeerControl extends React.Component {
     }
   }
 
+  handleEditClick = () => {
+    this.setState({editing: true});
+  }
+
+  handleEditingBeerInList = (beerToEdit) => {
+    const editedMasterBeerList = this.state.masterBeerList.filter(beer => beer.id !== this.state.selectedBeer.id).concat(beerToEdit);
+    this.setState({
+        masterBeerList: editedMasterBeerList,
+        editing: false,
+        selectedBeer: null
+      });
+  }
 
   handleRestockingBeer = (id) => {
     const chosenBeer = this.state.masterBeerList.filter(beer => beer.id === id)[0];
@@ -67,9 +82,12 @@ class BeerControl extends React.Component {
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-
-    if (this.state.selectedBeer != null) {
-      currentlyVisibleState = <BeerDetail beer = {this.state.selectedBeer} onClickingDelete = {this.handleDeletingBeer} onClickingRestock = {this.handleRestockingBeer} onClickingBuy = { this.handleBuyingBeer }/>
+    if (this.state.editing ) {
+      currentlyVisibleState = <EditBeerForm beer = {this.state.selectedBeer} onEditBeer = {this.handleEditingBeerInList} />
+      buttonText = "Return to Beer List";
+    }
+    else if (this.state.selectedBeer != null) {
+      currentlyVisibleState = <BeerDetail beer = {this.state.selectedBeer} onClickingDelete = {this.handleDeletingBeer} onClickingRestock = {this.handleRestockingBeer} onClickingBuy = { this.handleBuyingBeer } onClickingEdit = {this.handleEditClick} />
       buttonText = "Return to Beer List";
     }
     else if (this.state.formVisibleOnPage) {
