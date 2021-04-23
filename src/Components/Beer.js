@@ -4,7 +4,10 @@ import styled from 'styled-components';
 
 const StyledBeer = styled.div`
   cursor: pointer;
-  
+  margin-left: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 `
 
 function Beer(props) {
@@ -13,7 +16,7 @@ function Beer(props) {
     <StyledBeer onClick = {() => props.whenBeerClicked(props.id)}>
       <h3>{props.name}</h3>
       <h4>{props.brand}</h4>
-      <h5>{props.type}</h5>
+      <h4>{props.type}</h4>
       <h5>${props.price}</h5>
       <h5>{props.alcoholContent}% ABV</h5>
       <p>{props.pints}</p>

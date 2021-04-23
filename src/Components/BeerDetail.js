@@ -1,13 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Gose = styled.div`
+  color: rgb(255, 0, 213);
+  font-weight: 500;
+`
+
+const BeerCard = styled.div`
+  margin-left: 32%;
+  max-width: 500px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: solid ;
+  h1 {
+    margin-top: 0px;
+  }
+`
 
 function BeerDetail(props){
   const { beer, onClickingBuy, onClickingRestock, onClickingDelete } = props;
 
   return (
-    <>
+    <BeerCard>
       <h1>{beer.name}</h1>
-      <h4>{beer.type}</h4>
+      {beer.type === "Gose" &&
+        <Gose>{beer.type}</Gose>
+      }
       <h4>{beer.alcoholContent}%</h4>
       <h4>${beer.price}</h4>
       <h4>Pint Count: {beer.pints}</h4>
@@ -25,7 +45,7 @@ function BeerDetail(props){
       }
       <button onClick={ props.onClickingEdit }>Edit Beer</button>
       <button onClick={()=> onClickingDelete(beer.id)}>Delete Beer</button>
-    </>
+    </BeerCard>
   );
 }
 
