@@ -53,6 +53,9 @@ Diagram showing parent and children components and how they will be structured i
 
 ## Known Bugs
 
+* Search Functionality not yet implemented.
+* Beer List Button in header not yet implemented.
+
 ---
 
 ## License

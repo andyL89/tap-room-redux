@@ -11,7 +11,7 @@ const StyledButton = styled(Button)`
   outline: none;
   background: white;
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left: 45.5%;
   padding-top: 5px;
   padding-bottom: 5px;
   border: 2px solid black;

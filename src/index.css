@@ -1,5 +1,8 @@
 body, html {
-  background: rgb(255, 196, 0);
+  background-image: url("./img/wood-grain.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   width: 100%;
   height: 100%;
 }

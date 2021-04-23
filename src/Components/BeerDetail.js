@@ -4,12 +4,42 @@ import styled from 'styled-components';
 
 const Gose = styled.div`
   color: rgb(255, 0, 213);
-  font-size: 20px;
+  text-shadow: 1px 1px 2px #000000;
+  font-size: 25px;
   font-weight: 700;
 `
-
+const Pale = styled.div`
+  color: rgb(255, 205, 0);
+  text-shadow: 1px 1px 2px #000000;
+  font-size: 25px;
+  font-weight: 700;
+`
+const Amber = styled.div`
+  color: rgb(255, 0, 0);
+  text-shadow: 1px 1px 2px #000000;
+  font-size: 25px;
+  font-weight: 700;
+`
+const Stout = styled.div`
+  color: rgb(144, 96, 0);
+  text-shadow: 1px 1px 2px #000000;
+  font-size: 25px;
+  font-weight: 700;
+`
+const IPA = styled.div`
+  color: rgb(255, 128, 0);
+  text-shadow: 1px 1px 2px #000000;
+  font-size: 25px;
+  font-weight: 700;
+`
+const Cider = styled.div`
+  color: rgb(26, 255, 0);
+  text-shadow: 1px 1px 2px #000000;
+  font-size: 25px;
+  font-weight: 700;
+`
 const BeerCard = styled.div`
-  margin-left: 31.2%;
+  margin: auto;
   max-width: 500px;
   text-align: center;
   padding-top: 20px;
@@ -21,6 +51,19 @@ const BeerCard = styled.div`
   h1 {
     margin-top: 0px;
   }
+  button {
+    cursor: pointer;
+    outline: none;
+    background: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid black;
+    width: 100px;
+    font-size: 15px;
+    font-weight: 900;
+    color: black;
+    border-radius: 5px;
+  }
 `
 
 function BeerDetail(props){
@@ -29,11 +72,26 @@ function BeerDetail(props){
   return (
     <BeerCard>
       <h1>{beer.name}</h1>
-      {beer.type === "Gose" &&
+      {(beer.type === "Gose" || beer.type === "Sour") &&
         <Gose>{beer.type}</Gose>
       }
-      <h4>{beer.alcoholContent}%</h4>
-      <h4>${beer.price}</h4>
+      {beer.type === "Pale" &&
+        <Pale>{beer.type}</Pale>
+      }
+      {beer.type === "Amber" &&
+        <Amber>{beer.type}</Amber>
+      }
+      {beer.type === "Stout" &&
+        <Stout>{beer.type}</Stout>
+      }
+      {beer.type === "IPA" &&
+        <IPA>{beer.type}</IPA>
+      }
+      {beer.type === "Cider" &&
+        <Cider>{beer.type}</Cider>
+      }
+      <h4>{beer.alcoholContent}% ABV</h4>
+      <h4>${beer.price}/Pint</h4>
       <h4>Pint Count: {beer.pints}</h4>
       {beer.pints > 0 &&
         <button onClick={()=> onClickingBuy(beer.id) }>Pint Sold</button>
@@ -47,8 +105,8 @@ function BeerDetail(props){
       {beer.pints === 0 &&
       <button onClick={()=> onClickingRestock(beer.id) }>Restock</button>
       }
-      <button onClick={ props.onClickingEdit }>Edit Beer</button>
-      <button onClick={()=> onClickingDelete(beer.id)}>Delete Beer</button>
+      <button onClick={ props.onClickingEdit }>Edit</button>
+      <button onClick={()=> onClickingDelete(beer.id)}>Delete</button>
     </BeerCard>
   );
 }
