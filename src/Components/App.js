@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import TicketControl from "./TicketControl";
+import BeerControl from "./BeerControl";
 
 function App() {
   return (
