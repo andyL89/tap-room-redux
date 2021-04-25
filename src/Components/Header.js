@@ -8,7 +8,7 @@ const Navbar = styled.div`
   justify-content: space-between;
   padding: 5px 15px;
   height: 45px;
-  background: black;
+  background: rgb(0,100,10);
   margin-bottom: 60px;
 `
 const StyledButton = styled(Button)`
@@ -20,15 +20,14 @@ const StyledButton = styled(Button)`
   font-size: 20px;
   font-weight: 900;
   color: rgb(255, 255, 255);
-  text-shadow: 2px 2px 8px #FF0000;
   border-radius: 5px;
   outline: none;
   &:hover {
     background: rgb(255,194,0);
     background: linear-gradient(0deg, rgba(255,194,0,1) 82%, rgba(255,255,255,1) 82%, rgba(255,243,206,1) 100%);
-    color: black;
-    text-shadow: 2px 2px 8px #FFFFFF;
-    border: 2px solid black;
+    color: white;
+    text-shadow: 0 0  2px #FFFFFF;
+    border: 2px solid white;
     cursor: pointer;
     transition: .5s;
   }
@@ -38,7 +37,6 @@ const StyledTitle = styled(Button)`
   background-color: transparent;
   border-style: none;
   color: rgb(255, 255, 255);
-  text-shadow: 2px 2px 8px #FF0000;
   font-size: 30px;
   font-weight: 900;
   outline: none;
