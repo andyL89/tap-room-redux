@@ -56,7 +56,7 @@ function ReusableForm(props) {
           <input
             type = 'text'
             name = 'type'
-            placeholder = 'Type'/>
+            placeholder = 'Type (Pale, IPA, Sour, etc.)'/>
           <input
             type = 'text'
             name = 'price'

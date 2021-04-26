@@ -8,7 +8,8 @@ const Navbar = styled.div`
   justify-content: space-between;
   padding: 5px 15px;
   height: 45px;
-  background: rgb(0,100,10);
+  background: rgb(42,20,0);
+  background: linear-gradient(0deg, rgba(42,20,0,1) 4%, rgba(0,230,255,1) 6%);
   margin-bottom: 60px;
 `
 const StyledButton = styled(Button)`
@@ -49,7 +50,7 @@ const StyledSearch = styled(Search)`
   float: right;
   margin: 7px;
   padding: 6px;
-  border: 2px solid;
+  border: 1px solid;
   border-radius: 5px;
   outline: none;
 `
