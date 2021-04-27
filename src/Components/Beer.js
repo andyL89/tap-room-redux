@@ -77,7 +77,7 @@ function Beer(props) {
       }
       <h5>${props.price}/Pint</h5>
       <h5>{props.alcoholContent}% ABV</h5>
-      <p>{props.pints}</p>
+      <h5>{props.pints} Pints</h5>
       </StyledBeer>
       <hr/>
     </>

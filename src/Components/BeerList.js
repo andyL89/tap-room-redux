@@ -22,6 +22,7 @@ function BeerList(props){
             type={beer.type}
             alcoholContent={beer.alcoholContent}
             price={beer.price}
+            pints={beer.pints}
             id={beer.id}
             key={beer.id}/>
         )}
