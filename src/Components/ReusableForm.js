@@ -65,10 +65,10 @@ function ReusableForm(props) {
             type = 'text'
             name = 'alcoholContent'
             placeholder = 'Alcohol Content (ABV)' />
-          <input
+          {/* <input
             type = 'text'
             name = 'pints'
-            placeholder = 'Pints in Keg (Avg: 124)' />
+            placeholder = 'Pints in Keg (Avg: 124)' /> */}
           <button type='submit'>{props.buttonText}</button>
         </form>
       </StyledForm>

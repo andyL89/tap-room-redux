@@ -105,7 +105,6 @@ function BeerDetail(props){
       {beer.pints === 0 &&
       <button onClick={()=> onClickingRestock(beer.id) }>Restock</button>
       }
-      <button onClick={ props.onClickingEdit }>Edit</button>
       <button onClick={()=> onClickingDelete(beer.id)}>Delete</button>
     </BeerCard>
   );
@@ -115,8 +114,7 @@ BeerDetail.propTypes = {
   beer: PropTypes.object,
   onClickingDelete: PropTypes.func,
   onClickingRestock: PropTypes.func,
-  onClickingBuy: PropTypes.func,
-  onClickingEdit: PropTypes.func
+  onClickingBuy: PropTypes.func
 };
 
 export default BeerDetail;

@@ -23,16 +23,12 @@ export const deleteBeer = id => ({
   id
 });
 
-export const restockBeer = (beer) => {
-  const { name, brand, style, price, alcoholContent, pints, id } = beer;
-  return {
-    type: c.RESTOCK_BEER,
-    name: name,
-    brand: brand,
-    style: style,
-    price: price,
-    alcoholContent: alcoholContent,
-    pints: pints,
-    id: id,
-  }
-}
+export const restockBeer = id => ({
+  type: c.RESTOCK_BEER,
+  id
+});
+
+export const buyBeer = id => ({
+  type: c.BUY_BEER,
+  id
+});

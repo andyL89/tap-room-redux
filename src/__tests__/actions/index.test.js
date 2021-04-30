@@ -30,14 +30,15 @@ describe('tap-room actions', () => {
     });
 
   it('restockBeer should create RESTOCK_BEER action', () => {
-    expect(actions.restockBeer({name: 'SeaQuenchAle', brand: 'Dogfish Head', style: 'Sour', price: 4.99, alcoholContent: 4.9, pints: 124, id: 1})).toEqual({
+    expect(actions.restockBeer(1)).toEqual({
       type: c.RESTOCK_BEER,
-      name: 'SeaQuenchAle',
-      brand: 'Dogfish Head',
-      style: 'Sour',
-      price: 4.99,
-      alcoholContent: 4.9,
-      pints: 124,
+      id: 1
+    });
+  });
+
+  it('buyBeer should create BUY_BEER action', () => {
+    expect(actions.buyBeer(1)).toEqual({
+      type: c.BUY_BEER,
       id: 1
     });
   });
