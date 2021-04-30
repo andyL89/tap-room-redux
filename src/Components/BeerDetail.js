@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Propstyles from 'prop-styles';
 import styled from 'styled-components';
 
 const Gose = styled.div`
@@ -72,23 +72,23 @@ function BeerDetail(props){
   return (
     <BeerCard>
       <h1>{beer.name}</h1>
-      {(beer.type === "Gose" || beer.type === "Sour") &&
-        <Gose>{beer.type}</Gose>
+      {(beer.style === "Gose" || beer.style === "Sour") &&
+        <Gose>{beer.style}</Gose>
       }
-      {beer.type === "Pale" &&
-        <Pale>{beer.type}</Pale>
+      {beer.style === "Pale" &&
+        <Pale>{beer.style}</Pale>
       }
-      {beer.type === "Amber" &&
-        <Amber>{beer.type}</Amber>
+      {beer.style === "Amber" &&
+        <Amber>{beer.style}</Amber>
       }
-      {beer.type === "Stout" &&
-        <Stout>{beer.type}</Stout>
+      {beer.style === "Stout" &&
+        <Stout>{beer.style}</Stout>
       }
-      {beer.type === "IPA" &&
-        <IPA>{beer.type}</IPA>
+      {beer.style === "IPA" &&
+        <IPA>{beer.style}</IPA>
       }
-      {beer.type === "Cider" &&
-        <Cider>{beer.type}</Cider>
+      {beer.style === "Cider" &&
+        <Cider>{beer.style}</Cider>
       }
       <h4>{beer.alcoholContent}% ABV</h4>
       <h4>${beer.price}/Pint</h4>
@@ -111,12 +111,12 @@ function BeerDetail(props){
   );
 }
 
-BeerDetail.propTypes = {
-  beer: PropTypes.object,
-  onClickingDelete: PropTypes.func,
-  onClickingRestock: PropTypes.func,
-  onClickingBuy: PropTypes.func,
-  onClickingEdit: PropTypes.func
+BeerDetail.propstyles = {
+  beer: Propstyles.object,
+  onClickingDelete: Propstyles.func,
+  onClickingRestock: Propstyles.func,
+  onClickingBuy: Propstyles.func,
+  onClickingEdit: Propstyles.func
 };
 
 export default BeerDetail;

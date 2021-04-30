@@ -8,7 +8,7 @@ function EditBeerForm (props) {
     event.preventDefault();
     props.onEditBeer({name: event.target.name.value,
                       brand: event.target.brand.value,
-                      type: event.target.type.value,
+                      style: event.target.style.value,
                       price: event.target.price.value,
                       alcoholContent: event.target.alcoholContent.value,
                       pints: event.target.pints.value,

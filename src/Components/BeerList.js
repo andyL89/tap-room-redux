@@ -19,7 +19,7 @@ function BeerList(props){
             whenBeerClicked = { props.onBeerSelection }
             name={beer.name}
             brand={beer.brand}
-            type={beer.type}
+            style={beer.style}
             alcoholContent={beer.alcoholContent}
             price={beer.price}
             pints={beer.pints}
