@@ -14,7 +14,7 @@ function BeerList(props){
   return (
     <>
       <StyledList>
-        {props.beerList.map((beer) =>
+        {Object.values(props.beerList).map((beer) =>
           <Beer
             whenBeerClicked = { props.onBeerSelection }
             name={beer.name}
@@ -32,7 +32,7 @@ function BeerList(props){
 }
 
 BeerList.propTypes = {
-  beerList: PropTypes.array,
+  beerList: PropTypes.object,
   onBeerSelection: PropTypes.func
 };
 

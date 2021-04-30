@@ -20,6 +20,14 @@ export default (state = {}, action) => {
     let newState = { ...state };
     delete newState[id];
     return newState;
+  case c.RESTOCK_BEER:
+    let restockState = { ...state };
+    restockState[id].pints = 124;
+    return restockState;
+  case c.BUY_BEER:
+    let pintsState = { ...state };
+    pintsState[id].pints--;
+    return pintsState;
   default:
     return state;
   }

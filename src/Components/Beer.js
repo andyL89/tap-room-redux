@@ -1,5 +1,5 @@
 import React from "react";
-import Propstyles from "prop-styles";
+import PropTypes from "prop-types";
 import styled from 'styled-components';
 
 const Gose = styled.div`
@@ -84,15 +84,15 @@ function Beer(props) {
   );
 }
 
-Beer.propstyles = {
-  name: Propstyles.string.isRequired,
-  brand: Propstyles.string.isRequired,
-  style: Propstyles.string.isRequired,
-  price: Propstyles.string.isRequired,
-  alcoholContent: Propstyles.string.isRequired,
-  pints: Propstyles.string.isRequired,
-  id: Propstyles.string,
-  whenProductClicked: Propstyles.func
+Beer.propTypes = {
+  name: PropTypes.string.isRequired,
+  brand: PropTypes.string.isRequired,
+  style: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  alcoholContent: PropTypes.string.isRequired,
+  pints: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  whenProductClicked: PropTypes.func
 };
 
 export default Beer;

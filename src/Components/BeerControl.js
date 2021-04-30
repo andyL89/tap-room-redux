@@ -52,20 +52,32 @@ class BeerControl extends React.Component {
   }
 
   handleRestockingBeer = (id) => {
-    const chosenBeer = this.state.masterBeerList.filter(beer => beer.id === id)[0];
-    if (chosenBeer) {
-      const newQuantity = (parseInt(chosenBeer.pints) + 124);
-      chosenBeer.pints = newQuantity
+    const { dispatch } = this.props;
+    const chosenBeer = this.props.masterBeerList[id];
+    const action = {
+      type: 'RESTOCK_BEER',
+      id: id
+    }
+    dispatch(action);
+    if (this.setState.selectedBeer != null) {
       this.setState({selectedBeer: chosenBeer})
+    } else {
+        this.setState.selectedState = null;
     }
   }
 
   handleBuyingBeer = (id) => {
-    const chosenBeer = this.state.masterBeerList.filter(beer => beer.id === id)[0];
-    if (chosenBeer) {
-      const newQuantity = (parseInt(chosenBeer.pints) - 1);
-      chosenBeer.pints = newQuantity
+    const { dispatch } = this.props;
+    const chosenBeer = this.props.masterBeerList[id];
+    const action = {
+      type: 'BUY_BEER',
+      id: id
+    }
+    dispatch(action);
+    if (this.setState.selectedBeer != null) {
       this.setState({selectedBeer: chosenBeer})
+    } else {
+      this.setState.selectedState = null;
     }
   }
 
@@ -99,8 +111,8 @@ class BeerControl extends React.Component {
     }
 
   handleChangingSelectedBeer = (id) => {
-    const selectedBeer = this.props.masterBeerList.filter(beer => beer.id === id)[0];
-    this.setState({selectedBeer: selectedBeer});
+    const selectedBeer = this.props.masterBeerList[id];
+    this.setState({ selectedBeer: selectedBeer });
   }
 
   render(){

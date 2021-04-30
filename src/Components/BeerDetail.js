@@ -1,5 +1,5 @@
 import React from 'react';
-import Propstyles from 'prop-styles';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Gose = styled.div`
@@ -111,12 +111,12 @@ function BeerDetail(props){
   );
 }
 
-BeerDetail.propstyles = {
-  beer: Propstyles.object,
-  onClickingDelete: Propstyles.func,
-  onClickingRestock: Propstyles.func,
-  onClickingBuy: Propstyles.func,
-  onClickingEdit: Propstyles.func
+BeerDetail.propTypes = {
+  beer: PropTypes.object,
+  onClickingDelete: PropTypes.func,
+  onClickingRestock: PropTypes.func,
+  onClickingBuy: PropTypes.func,
+  onClickingEdit: PropTypes.func
 };
 
 export default BeerDetail;
