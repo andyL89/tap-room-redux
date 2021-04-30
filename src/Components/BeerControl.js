@@ -2,9 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from './defaults/Button';
 import NewBeerForm from './NewBeerForm';
-import BeerDetail from './BeerDetail';
 import BeerList from './BeerList';
+import BeerDetail from './BeerDetail';
 import EditBeerForm from './EditBeerForm'
+import { connect } from 'react-redux';
+import PropTypes from "prop-types";
+import * as a from './../actions';
 
 const StyledButton = styled(Button)`
   cursor: pointer;
@@ -25,11 +28,11 @@ const StyledButton = styled(Button)`
 `
 
 class BeerControl extends React.Component {
+
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
-      formVisibleOnPage: false,
-      masterBeerList: [],
       selectedBeer: null,
       editing: false
     };
@@ -38,28 +41,14 @@ class BeerControl extends React.Component {
   handleClick = () => {
     if (this.state.selectedBeer != null) {
       this.setState({
-        formVisibleOnPage: false,
         selectedBeer: null,
         editing: false
       });
     } else {
-      this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage
-      }));
+      const { dispatch } = this.props;
+      const action = a.toggleForm();
+      dispatch(action);
     }
-  }
-
-  handleEditClick = () => {
-    this.setState({editing: true});
-  }
-
-  handleEditingBeerInList = (beerToEdit) => {
-    const editedMasterBeerList = this.state.masterBeerList.filter(beer => beer.id !== this.state.selectedBeer.id).concat(beerToEdit);
-    this.setState({
-        masterBeerList: editedMasterBeerList,
-        editing: false,
-        selectedBeer: null
-      });
   }
 
   handleRestockingBeer = (id) => {
@@ -81,52 +70,87 @@ class BeerControl extends React.Component {
   }
 
   handleAddingNewBeerToList = (newBeer) => {
-    const newMasterBeerList = this.state.masterBeerList.concat(newBeer);
-    this.setState({masterBeerList: newMasterBeerList,
-                  formVisibleOnPage: false});
-  }
+    const { dispatch } = this.props;
+    const action = a.addBeer(newBeer);
+    dispatch(action);
+    const action2 = a.toggleForm();
+    dispatch(action2);
+    }
+
+    handleEditClick = () => {
+      this.setState({editing: true});
+    }
+
+    handleEditingBeerInList = (beerToEdit) => {
+      const { dispatch } = this.props;
+      const action = a.addBeer(beerToEdit);
+      dispatch(action);
+      this.setState({
+        editing: false,
+        selectedBeer: null
+      });
+    }
+
+    handleDeletingBeer = (id) => {
+      const { dispatch } = this.props;
+      const action = a.deleteBeer(id);
+      dispatch(action);
+      this.setState({selectedBeer: null});
+    }
 
   handleChangingSelectedBeer = (id) => {
-    const selectedBeer = this.state.masterBeerList.filter(beer => beer.id === id)[0];
+    const selectedBeer = this.props.masterBeerList.filter(beer => beer.id === id)[0];
     this.setState({selectedBeer: selectedBeer});
-  }
-
-  handleDeletingBeer = (id) => {
-    const newMasterBeerList = this.state.masterBeerList.filter(beer => beer.id !== id);
-    this.setState({
-      masterBeerList: newMasterBeerList,
-      selectedBeer: null
-    });
   }
 
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.editing ) {
-      currentlyVisibleState = <EditBeerForm beer = {this.state.selectedBeer} onEditBeer = {this.handleEditingBeerInList} />
-      buttonText = "Return to Beer List";
+      currentlyVisibleState = <EditBeerForm beer = {this.state.selectedBeer}
+                                      onEditBeer = {this.handleEditingBeerInList} />
+                                      buttonText = "Return to Beer List";
     }
     else if (this.state.selectedBeer != null) {
-      currentlyVisibleState = <BeerDetail beer = {this.state.selectedBeer} onClickingDelete = {this.handleDeletingBeer} onClickingRestock = {this.handleRestockingBeer} onClickingBuy = { this.handleBuyingBeer } onClickingEdit = {this.handleEditClick} />
-      buttonText = "Return to Beer List";
+      currentlyVisibleState = <BeerDetail beer = {this.state.selectedBeer}
+                              onClickingDelete = {this.handleDeletingBeer}
+                              onClickingRestock = {this.handleRestockingBeer}
+                              onClickingBuy = { this.handleBuyingBeer }
+                              onClickingEdit = {this.handleEditClick} />
+                              buttonText = "Return to Beer List";
     }
-    else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewBeerForm onNewBeerCreation={this.handleAddingNewBeerToList} />;
-      buttonText = "Return to Beer List";
+    else if (this.props.formVisibleOnPage) {
+      currentlyVisibleState = <NewBeerForm onNewBeerCreation = {this.handleAddingNewBeerToList} />;
+                              buttonText = "Return to Beer List";
     } else {
       currentlyVisibleState =
       <BeerList
-        beerList={this.state.masterBeerList} onBeerSelection={this.handleChangingSelectedBeer}/>;
+        beerList = {this.props.masterBeerList}
+        onBeerSelection = {this.handleChangingSelectedBeer}/>;
         buttonText = "Add Beer";
     }
     return (
       <>
         {currentlyVisibleState}
-        <StyledButton onClick={this.handleClick} text={buttonText}/>
+        <StyledButton onClick = {this.handleClick} text = {buttonText}/>
       </>
     );
   }
 
 }
+
+BeerControl.propTypes = {
+  masterBeerList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool
+};
+
+const mapStateToProps = state => {
+  return {
+    masterBeerList: state.masterBeerList,
+    formVisibleOnPage: state.formVisibleOnPage
+  }
+}
+
+BeerControl = connect(mapStateToProps)(BeerControl);
 
 export default BeerControl;

@@ -5,7 +5,7 @@ export const toggleForm = () => ({
 })
 
 export const addBeer = (beer) => {
-  const { name, brand, style, price, alcoholContent, pints, id, timeOpen, formattedWaitTime } = beer;
+  const { name, brand, style, price, alcoholContent, pints, id } = beer;
   return {
     type: c.ADD_BEER,
     name: name,
@@ -15,18 +15,10 @@ export const addBeer = (beer) => {
     alcoholContent: alcoholContent,
     pints: pints,
     id: id,
-    timeOpen: timeOpen,
-    formattedWaitTime: formattedWaitTime
   }
 }
 
 export const deleteBeer = id => ({
   type: c.DELETE_BEER,
   id
-});
-
-export const updateTime = (id, formattedWaitTime) => ({
-  type: c.UPDATE_TIME,
-  id: id,
-  formattedWaitTime: formattedWaitTime
 });

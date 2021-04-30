@@ -10,17 +10,14 @@ describe('tap-room actions', () => {
     });
 
     it('addBeer should create ADD_BEER action', () => {
-      expect(actions.addBeer({name: 'SeaQuenchAle', brand: 'Dogfish Head', kind: 'Sour', price: 4.99, alcoholContent: 4.9, pints: 124, timeOpen: 0,
-      formattedWaitTime: "A few seconds", id: 1})).toEqual({
+      expect(actions.addBeer({name: 'SeaQuenchAle', brand: 'Dogfish Head', style: 'Sour', price: 4.99, alcoholContent: 4.9, pints: 124, id: 1})).toEqual({
         type: c.ADD_BEER,
         name: 'SeaQuenchAle',
         brand: 'Dogfish Head',
-        kind: 'Sour',
+        style: 'Sour',
         price: 4.99,
         alcoholContent: 4.9,
         pints: 124,
-        timeOpen: 0,
-        formattedWaitTime: "A few seconds",
         id: 1
       });
     });
@@ -29,14 +26,6 @@ describe('tap-room actions', () => {
       expect(actions.deleteBeer(1)).toEqual({
         type: c.DELETE_BEER,
         id: 1
-      });
-    });
-
-    it('updateTime should create UPDATE_TIME action', () => {
-      expect(actions.updateTime(1, "A few seconds")).toEqual({
-        type: c.UPDATE_TIME,
-        id: 1,
-        formattedWaitTime: "A few seconds"
       });
     });
 
