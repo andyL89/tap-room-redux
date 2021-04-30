@@ -1,12 +1,12 @@
-# _Tap-Room_
-A React web app for creating, deleting, and updating different types of beer.
+# _Tap-Room-Redux_
+A React web app for creating, deleting, and updating different types of beer, using Redux to store all state.
 
 ### _**Andy Lawson**_
 
-[Epicodus](https://www.epicodus.com/) - [React](https://www.learnhowtoprogram.com/react) - [React Fundamentals](https://www.learnhowtoprogram.com/react/react-fundamentals)
+[Epicodus](https://www.epicodus.com/) - [React](https://www.learnhowtoprogram.com/react) - [React with Redux](https://www.learnhowtoprogram.com/react/react-with-redux)
 
 
-#### Date created: 04/23/2021
+#### Date created: 04/30/2021
 
 ---
 
@@ -15,6 +15,7 @@ A React web app for creating, deleting, and updating different types of beer.
 * _JavaScript_
 * _JSX_
 * _React_
+* _Redux_
 * _SASS_
 * _draw.io_
 * _git 2.30.0_
@@ -37,8 +38,8 @@ Diagram showing parent and children components and how they will be structured i
 
 ## Setup/Installation
 
-* To clone this directory, navigate in your terminal to the desired location of the project and run command `git clone https://github.com/andyL89/tap-room.git`
-* Navigate to top level of the directory with command `cd tap-room`
+* To clone this directory, navigate in your terminal to the desired location of the project and run command `git clone https://github.com/andyL89/tap-room-redux.git`
+* Navigate to top level of the directory with command `cd tap-room-redux`
 * Run local server with command `npm run start`
 
 ---
