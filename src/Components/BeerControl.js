@@ -28,19 +28,19 @@ const StyledButton = styled(Button)`
 
 class BeerControl extends React.Component {
 
-  constructor(props) {
-    super(props);
-    console.log(props);
-    this.state = {
-      selectedBeer: null,
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   console.log(props);
+  //   this.state = {
+  //     selectedBeer: null,
+  //   };
+  // }
 
   handleClick = () => {
-    if (this.state.selectedBeer != null) {
-      this.setState({
-        selectedBeer: null,
-      });
+    if (this.props.selectedBeer.name !== undefined) {
+      const { dispatch } = this.props;
+      const action = a.unselectedBeer();
+      dispatch(action)
     } else {
       const { dispatch } = this.props;
       const action = a.toggleForm();
@@ -66,25 +66,30 @@ class BeerControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.buyBeer(id);
     dispatch(action);
+    console.log(id)
   }
 
   handleDeletingBeer = (id) => {
     const { dispatch } = this.props;
     const action = a.deleteBeer(id);
     dispatch(action);
-    this.setState({selectedBeer: null});
+    const action2 = a.unselectedBeer()
+    dispatch(action2);
   }
 
   handleChangingSelectedBeer = (id) => {
-    const selectedBeer = this.props.masterBeerList[id];
-    this.setState({ selectedBeer: selectedBeer });
+    const beer = this.props.masterBeerList[id];
+    const { dispatch } = this.props;
+    const action = a.selectedBeer(beer)
+    dispatch(action);
   }
 
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.selectedBeer != null) {
-      currentlyVisibleState = <BeerDetail beer = {this.state.selectedBeer}
+    if (this.props.selectedBeer.name !== undefined) {
+      const displayedBeer = this.props.selectedBeer.id;
+      currentlyVisibleState = <BeerDetail beer = {this.props.masterBeerList[displayedBeer]}
                               onClickingDelete = {this.handleDeletingBeer}
                               onClickingRestock = {this.handleRestockingBeer}
                               onClickingBuy = { this.handleBuyingBeer } />
@@ -112,13 +117,15 @@ class BeerControl extends React.Component {
 
 BeerControl.propTypes = {
   masterBeerList: PropTypes.object,
+  selectedBeer: PropTypes.object,
   formVisibleOnPage: PropTypes.bool
 };
 
 const mapStateToProps = state => {
   return {
     masterBeerList: state.masterBeerList,
-    formVisibleOnPage: state.formVisibleOnPage
+    formVisibleOnPage: state.formVisibleOnPage,
+    selectedBeer: state.selectedBeer
   }
 }
 

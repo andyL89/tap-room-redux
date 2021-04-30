@@ -32,3 +32,23 @@ export const buyBeer = id => ({
   type: c.BUY_BEER,
   id
 });
+
+export const selectedBeer = (beer) => {
+  const { name, brand, style, price, alcoholContent, pints, id } = beer;
+  return {
+    type: c.SELECTED_BEER,
+    name: name,
+    brand: brand,
+    style: style,
+    price: price,
+    alcoholContent: alcoholContent,
+    pints: pints,
+    id: id,
+  }
+}
+
+export const unselectedBeer = () => {
+  return {
+    type: c.UNSELECTED_BEER
+  }
+}

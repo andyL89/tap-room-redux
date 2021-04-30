@@ -90,7 +90,7 @@ Beer.propTypes = {
   style: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   alcoholContent: PropTypes.string.isRequired,
-  pints: PropTypes.string.isRequired,
+  pints: PropTypes.number.isRequired,
   id: PropTypes.string,
   whenProductClicked: PropTypes.func
 };
