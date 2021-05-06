@@ -5,17 +5,17 @@ import Search from './defaults/Search';
 
 const Navbar = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 5px 15px;
   height: 45px;
   background: rgb(42,20,0);
   background: linear-gradient(0deg, rgba(42,20,0,1) 4%, rgba(0,230,255,1) 6%);
   margin-bottom: 60px;
 `
-const StyledButton = styled(Button)`
+const StyledTitle = styled(Button)`
   background: transparent;
-  margin-left: 10px;
-  border: 2px solid white;
+  margin-right: 32%;
+  border: 2px solid transparent;
   background-color: transparent;
   width: 160px;
   font-size: 20px;
@@ -33,19 +33,19 @@ const StyledButton = styled(Button)`
     transition: .5s;
   }
 `
-const StyledTitle = styled(Button)`
-  text-align: center;
-  background-color: transparent;
-  border-style: none;
-  color: rgb(255, 255, 255);
-  font-size: 30px;
-  font-weight: 900;
-  outline: none;
-  &:hover {
-    cursor: pointer;
-    transition: .2s;
-  }
-`
+// const StyledTitle = styled(Button)`
+//   text-align: center;
+//   background-color: transparent;
+//   border-style: none;
+//   color: rgb(255, 255, 255);
+//   font-size: 30px;
+//   font-weight: 900;
+//   outline: none;
+//   &:hover {
+//     cursor: pointer;
+//     transition: .2s;
+//   }
+// `
 const StyledSearch = styled(Search)`
   float: right;
   margin: 7px;
@@ -57,8 +57,7 @@ const StyledSearch = styled(Search)`
 
 const Header = () => (
   <Navbar>
-    <StyledButton text={"Beer List"} />
-    <StyledTitle text={"Andy's Really Cool Pub"}/>
+    <StyledTitle text={"On Tap"}/>
     <StyledSearch placeholder={"Search"}/>
   </Navbar>
 )

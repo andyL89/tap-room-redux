@@ -6,14 +6,14 @@ describe('beerListReducer', () => {
   let action;
 
   const currentState = {
-    1: {name: 'SeaQuenchAle',
+    1: { name: 'SeaQuenchAle',
     brand: 'Dogfish Head',
     style: 'Sour',
     price: 4.99,
     alcoholContent: 4.9,
     pints: 124,
     id: 1 },
-    2: {name: 'Pale Ale',
+    2: { name: 'Pale Ale',
     brand: 'Sierra Nevada',
     style: 'Pale',
     price: 4.99,

@@ -1,5 +1,5 @@
 # _Tap-Room-Redux_
-A React web app for creating, deleting, and updating different types of beer, using Redux to store all state.
+A React web app for creating, deleting, and updating different types of beer, using Redux to handle all state.
 
 ### _**Andy Lawson**_
 
