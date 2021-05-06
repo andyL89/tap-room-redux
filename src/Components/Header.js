@@ -33,19 +33,6 @@ const StyledTitle = styled(Button)`
     transition: .5s;
   }
 `
-// const StyledTitle = styled(Button)`
-//   text-align: center;
-//   background-color: transparent;
-//   border-style: none;
-//   color: rgb(255, 255, 255);
-//   font-size: 30px;
-//   font-weight: 900;
-//   outline: none;
-//   &:hover {
-//     cursor: pointer;
-//     transition: .2s;
-//   }
-// `
 const StyledSearch = styled(Search)`
   float: right;
   margin: 7px;
